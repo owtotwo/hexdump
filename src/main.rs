@@ -1,4 +1,4 @@
-mod hexdump;
+pub mod hexdump;
 
 use std::env;
 use std::path::Path;

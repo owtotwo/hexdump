@@ -10,15 +10,16 @@ use std::io::Read;
 ///
 /// # Example
 ///
-/// Basic usage:
-/// ```
-/// // the file `data` contain 18 bytes "abcefghijklmnopq\n". 
-/// dump("data").unwrap();
+/// Basic usage:  
 ///
+/// ```
+/// // the file `data` contain 18 bytes "abcefghijklmnopq\n".  
+/// dump("data").unwrap();  
+///  
 /// // the console will show:  
 /// //     00000000  61 62 63 64 65 66 67 68  69 6a 6b 6c 6d 6e 6f 70  |abcdefghijklmnop|  
 /// //     00000010  71 0a                                             |q.|  
-/// //     00000012 
+/// //     00000012  
 ///
 /// ```
 pub fn dump(filepath: &Path) -> io::Result<()> {
@@ -92,11 +93,12 @@ pub fn dump(filepath: &Path) -> io::Result<()> {
 /// # Example
 ///
 /// Basic usage:
+///
 /// ```
 /// let arr: Vec<u8> = vec![0x61, 0x62, 0x63, 0x0A, 0x65];
 /// assert!(to_printable_chars(&arr[..], String::from("abc.e"));
 /// ```
-fn to_printable_chars(arr: &[u8]) -> String {
+pub fn to_printable_chars(arr: &[u8]) -> String {
     let mut content = String::new();
     for i in arr.iter() {
         let c = match char::from_u32(i.clone() as u32) {
