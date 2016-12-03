@@ -7,14 +7,12 @@ use std::error::Error;
 const HINTS: &'static str = "Usage: hexdump <file>";
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
+    
     // parse args
-    match env::args().len() {
+    match args.len() {
         2 => {
-            let filepath = match env::args().nth(1) {
-                Some(val) => val,
-                None => unreachable!(),
-            };
-            let filepath = Path::new(&filepath);
+            let filepath = Path::new(&args[1]);
             if !filepath.is_file() {
                 println!("Error: Not File");
                 return;
